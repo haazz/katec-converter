@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haazz.github.io/katec-converter/sitemap.xml
