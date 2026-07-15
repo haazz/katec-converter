@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WGS84 위경도와 KATEC 좌표를 브라우저에서 변환하는 정적 웹 도구"
+    />
+    <title>KATEC Converter</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="intro">
+          <h1 id="page-title">KATEC Converter</h1>
+          <p class="summary">WGS84 위경도와 KATEC TM 좌표를 브라우저에서 바로 변환합니다.</p>
+        </div>
+
+        <section class="converter" aria-label="좌표 변환기">
+          <div class="mode-tabs" role="tablist" aria-label="변환 방향">
+            <button class="mode-tab is-active" type="button" data-mode="wgs" role="tab" aria-selected="true">
+              WGS84 -> KATEC
+            </button>
+            <button class="mode-tab" type="button" data-mode="katec" role="tab" aria-selected="false">
+              KATEC -> WGS84
+            </button>
+          </div>
+
+          <form id="converterForm" class="form-grid">
+            <label class="field">
+              <span id="label1">Latitude</span>
+              <input
+                id="value1"
+                name="value1"
+                type="text"
+                inputmode="decimal"
+                autocomplete="off"
+              />
+            </label>
+            <label class="field">
+              <span id="label2">Longitude</span>
+              <input
+                id="value2"
+                name="value2"
+                type="text"
+                inputmode="decimal"
+                autocomplete="off"
+              />
+            </label>
+
+            <div class="actions">
+              <button class="primary-button" type="submit">변환</button>
+            </div>
+          </form>
+
+          <div class="result-panel" id="resultPanel" hidden>
+            <p class="result-label">Result</p>
+            <div id="resultText" class="result-list"></div>
+          </div>
+
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/proj4@2.11.0/dist/proj4.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
